@@ -33,7 +33,7 @@ function calculateWinner(squares) {
 export default function Board() {
   const [squares, setSquares] = React.useState(Array(9).fill(null));
 
-  const xIsNextState = React.useState(true);
+  const xIsNextState = React.useState(Math.random() > 0.5);
   const xIsNext = xIsNextState[0];
   const setXIsNext = xIsNextState[1];
 
@@ -58,7 +58,7 @@ export default function Board() {
 
   function resetBoard() {
     setSquares(Array(9).fill(null));
-    setXIsNext(true);
+    setXIsNext(Math.random() > 0.5);
   }
 
   return (
