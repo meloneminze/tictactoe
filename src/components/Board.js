@@ -37,7 +37,7 @@ export default function Board() {
   const xIsNext = xIsNextState[0];
   const setXIsNext = xIsNextState[1];
 
-  const nextPlayer = xIsNext ? "0" : "X";
+  const nextPlayer = xIsNext ? "🍑" : "🍉";
   const winner = calculateWinner(squares);
   const status = winner ? `Winner is ${winner}` : `Next player: ${nextPlayer}`;
 
