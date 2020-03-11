@@ -33,11 +33,15 @@ function calculateWinner(squares) {
 export default function Board() {
   const [squares, setSquares] = React.useState(Array(9).fill(null));
 
-  const xIsNextState = React.useState(true);
+  const xIsNextState = React.useState(Math.random() > 0.5);
   const xIsNext = xIsNextState[0];
   const setXIsNext = xIsNextState[1];
 
+<<<<<<< HEAD
   const nextPlayer = xIsNext ? "🍑" : "🍉";
+=======
+  const nextPlayer = xIsNext ? "X" : "0";
+>>>>>>> Add reset button
   const winner = calculateWinner(squares);
   const status = winner ? `Winner is ${winner}` : `Next player: ${nextPlayer}`;
 
@@ -50,6 +54,11 @@ export default function Board() {
     squaresCopy[squareIndex] = nextPlayer;
     setXIsNext(!xIsNext);
     setSquares(squaresCopy);
+  }
+
+  function resetBoard() {
+    setSquares(Array(9).fill(null));
+    setXIsNext(Math.random() > 0.5);
   }
 
   return (
@@ -70,6 +79,7 @@ export default function Board() {
         <Square value={squares[7]} onClick={() => handleClick(7)} />
         <Square value={squares[8]} onClick={() => handleClick(8)} />
       </div>
+      <button onClick={() => resetBoard()}>reset</button>
     </div>
   );
 }
